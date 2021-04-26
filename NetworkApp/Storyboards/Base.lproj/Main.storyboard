@@ -11,7 +11,7 @@
         <!--Main View-->
         <scene sceneID="kdA-RB-5Mg">
             <objects>
-                <collectionViewController id="N7G-qo-y1u" customClass="MainCollectionViewController" customModule="NetworkApp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="N7G-qo-y1u" customClass="MainViewController" customModule="NetworkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CWp-LE-CFn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                             <inset key="sectionInset" minX="40" minY="40" maxX="40" maxY="40"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="PTo-qQ-cDk" customClass="UserActionCollectionViewCell" customModule="NetworkApp" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="PTo-qQ-cDk" customClass="UserActionCell" customModule="NetworkApp" customModuleProvider="target">
                                 <rect key="frame" x="57" y="40" width="300" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -66,10 +66,8 @@
                     <navigationItem key="navigationItem" title="Main View" id="73c-RU-vRK"/>
                     <connections>
                         <segue destination="IE3-0Z-cui" kind="show" identifier="ShowImage" id="hP1-ax-vVq"/>
-                        <segue destination="9R5-qd-L49" kind="show" identifier="ExampleOne" id="uEi-AU-wCv"/>
-                        <segue destination="9R5-qd-L49" kind="show" identifier="ExampleTwo" id="Io3-42-Psv"/>
-                        <segue destination="9R5-qd-L49" kind="show" identifier="ExampleThree" id="f5W-pp-eEi"/>
-                        <segue destination="9R5-qd-L49" kind="show" identifier="ExampleFour" id="FiX-0r-dEY"/>
+                        <segue destination="9R5-qd-L49" kind="show" identifier="AlamofirePost" id="f5W-pp-eEi"/>
+                        <segue destination="9R5-qd-L49" kind="show" identifier="AlamofireGet" id="FiX-0r-dEY"/>
                         <segue destination="9R5-qd-L49" kind="show" identifier="OurCourses" id="ahb-QM-kvX"/>
                     </connections>
                 </collectionViewController>
@@ -77,16 +75,16 @@
             </objects>
             <point key="canvasLocation" x="942.02898550724649" y="107.8125"/>
         </scene>
-        <!--Course Table View Controller-->
+        <!--Courses View Controller-->
         <scene sceneID="BBS-BM-KtX">
             <objects>
-                <tableViewController id="9R5-qd-L49" customClass="CourseTableViewController" customModule="NetworkApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="9R5-qd-L49" customClass="CoursesViewController" customModule="NetworkApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fZe-d2-zkC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="cRi-bP-CyO" customClass="CourseTableViewCell" customModule="NetworkApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="cRi-bP-CyO" customClass="CourseCell" customModule="NetworkApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cRi-bP-CyO" id="YRh-yY-hvC">
@@ -136,10 +134,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="courseImageView" destination="yN9-zF-01k" id="Aeh-LZ-Mxz"/>
-                                    <outlet property="nameCourseLabel" destination="MmW-xa-Eon" id="HIh-M7-cnv"/>
-                                    <outlet property="numberLessonsCourseLabel" destination="HWq-kX-YDA" id="Jtk-CA-xMI"/>
-                                    <outlet property="numberTestsCourseLabel" destination="YzN-hp-jt9" id="5Zf-oa-eh7"/>
+                                    <outlet property="courseImage" destination="yN9-zF-01k" id="Aeh-LZ-Mxz"/>
+                                    <outlet property="courseNameLabel" destination="MmW-xa-Eon" id="HIh-M7-cnv"/>
+                                    <outlet property="numberOfLessons" destination="HWq-kX-YDA" id="Jtk-CA-xMI"/>
+                                    <outlet property="numberOfTests" destination="YzN-hp-jt9" id="5Zf-oa-eh7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -152,7 +150,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56u-oN-G3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1919" y="585"/>
+            <point key="canvasLocation" x="1812" y="589"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="Pj5-ct-PIM">
@@ -188,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TzE-kD-4rf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1919" y="-145"/>
+            <point key="canvasLocation" x="1812" y="-146"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gwc-Eh-SfG">
@@ -210,7 +208,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uEi-AU-wCv"/>
+        <segue reference="f5W-pp-eEi"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="scrollViewTexturedBackgroundColor">
