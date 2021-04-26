@@ -27,7 +27,7 @@ enum UserActions: String, CaseIterable {
 	case postRequest = "POST Request"
 	case ourCourses = "Our Courses"
 	case alamofireGet = "Alamofire GET"
-	case alamofirePOST = "Alamofire POST"
+//	case alamofirePOST = "Alamofire POST"
 }
 
 class MainViewController: UICollectionViewController {
@@ -61,7 +61,7 @@ class MainViewController: UICollectionViewController {
 		case .ourCourses: performSegue(withIdentifier: "OurCourses", sender: nil)
 		case .postRequest: NetworkManager.shared.postRequest {(request) in self.showAlert(request)}
 		case .alamofireGet: performSegue(withIdentifier: "AlamofireGet", sender: nil)
-		case .alamofirePOST: performSegue(withIdentifier: "AlamofirePost", sender: nil)
+//		case .alamofirePOST: performSegue(withIdentifier: "AlamofirePost", sender: nil)
 		}
 	}
 
@@ -74,7 +74,7 @@ class MainViewController: UICollectionViewController {
 			switch segue.identifier {
 			case "OurCourses": coursesVC.showCourses()
 			case "AlamofireGet": coursesVC.alamofireGetButtonPressed()
-			case "AlamofirePost": coursesVC.alamofireGetButtonPressed()
+//			case "AlamofirePost": coursesVC.alamofirePostButtonPressed()
 			default: break
 			}
 		}

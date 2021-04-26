@@ -181,33 +181,32 @@ class NetworkManager {
 			.responseJSON { response in
 				switch response.result {
 				case .success(let value):
-					completion(value as? [Course] ?? [])
+					completion(Course.getCourses(from: value) ?? [])
+					print(value)
 				case .failure(let error):
 					print(error.localizedDescription)
 				}
-		}
+			}
 	}
 
-	func alamofirePostButtonPressed() {
+//	func alamofirePostButtonPressed(with completion: @escaping (Course) -> Void) {
 //		let userData = [
 //			"name": "Networking",
 //			"imageUrl": "https://swiftbook.ru/wp-content/uploads/sites/2/2018/08/notifications-course-with-background.png",
-//			"numberOfLessons": "18",
-//			"numberOfTests": "10"
-//		]
+//			"numberOfLessons": 18,
+//			"numberOfTests": 10
+//		] as [String: Any]
 //
 //		AF.request(URLExamples.postRequest.rawValue, method: .post, parameters: userData)
 //			.validate()
 //			.responseDecodable(of: Course.self) { response in
 //				switch response.result {
 //				case .success(let course):
-//					self.courses.append(course)
-//					DispatchQueue.main.async {
-//						self.tableView.reloadData()
-//					}
+//					print(course)
+//					completion(course)
 //				case .failure(let error):
 //					print(error)
 //				}
 //		}
-	}
+//	}
 }
