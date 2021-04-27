@@ -48,12 +48,12 @@ class CoursesViewController: UITableViewController {
 		}
 	}
 
-//	func alamofirePostButtonPressed() {
-//		NetworkManager.shared.alamofirePostButtonPressed { (course) in
-//			DispatchQueue.main.async {
-//				self.courses.append(course)
-//				self.tableView.reloadData()
-//			}
-//		}
-//	}
+	func alamofirePostButtonPressed() {
+		NetworkManager.shared.alamofirePostButtonPressed { (course) in
+			DispatchQueue.main.async {
+				self.courses.append(course)
+				self.tableView.reloadData()
+			}
+		}
+	}
 }

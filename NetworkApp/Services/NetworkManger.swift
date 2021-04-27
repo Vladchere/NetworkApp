@@ -61,8 +61,8 @@ class NetworkManager {
 			decoder.keyDecodingStrategy = .convertFromSnakeCase
 
 			do {
-				let course = try decoder.decode([Course].self, from: data)
-				print(course)
+				let courses = try decoder.decode([Course].self, from: data)
+				print(courses)
 				completion(true)
 			} catch let error {
 				print(error.localizedDescription)
@@ -100,7 +100,7 @@ class NetworkManager {
 			guard let data = data else { return }
 
 			let decoder = JSONDecoder()
-			decoder.keyDecodingStrategy = .convertFromSnakeCase
+//			decoder.keyDecodingStrategy = .convertFromSnakeCase
 
 			do {
 				let websiteDescription = try decoder.decode(WebsiteDescription.self, from: data)
@@ -189,24 +189,24 @@ class NetworkManager {
 			}
 	}
 
-//	func alamofirePostButtonPressed(with completion: @escaping (Course) -> Void) {
-//		let userData = [
-//			"name": "Networking",
-//			"imageUrl": "https://swiftbook.ru/wp-content/uploads/sites/2/2018/08/notifications-course-with-background.png",
-//			"numberOfLessons": 18,
-//			"numberOfTests": 10
-//		] as [String: Any]
-//
-//		AF.request(URLExamples.postRequest.rawValue, method: .post, parameters: userData)
-//			.validate()
-//			.responseDecodable(of: Course.self) { response in
-//				switch response.result {
-//				case .success(let course):
-//					print(course)
-//					completion(course)
-//				case .failure(let error):
-//					print(error)
-//				}
-//		}
-//	}
+	func alamofirePostButtonPressed(with completion: @escaping (Course) -> Void) {
+		let userData = [
+			"name": "Networking",
+			"imageUrl": "https://swiftbook.ru/wp-content/uploads/sites/2/2018/08/notifications-course-with-background.png",
+			"numberOfLessons": 18,
+			"numberOfTests": 10
+		] as [String: Any]
+
+		AF.request(URLExamples.postRequest.rawValue, method: .post, parameters: userData)
+			.validate()
+			.responseDecodable(of: Course.self) { response in
+				switch response.result {
+				case .success(let course):
+					print(course)
+					completion(course)
+				case .failure(let error):
+					print(error)
+				}
+		}
+	}
 }
